@@ -1,12 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-
-import NxWelcome from './nx-welcome';
+import { BaseMap } from '@mdc/map';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="simple" />
+      <BaseMap height={800}></BaseMap>
     </div>
   );
 }
