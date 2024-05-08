@@ -22,7 +22,7 @@ function Index() {
         </li>
         <li>
           <Header variant="h2">Dynamic</Header>
-          <p>Markers generated in a loop</p>
+          <p>Markers generated in a loop using faker-js</p>
         </li>
       </ul>
     </div>

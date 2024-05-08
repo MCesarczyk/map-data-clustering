@@ -3,6 +3,7 @@ import { rootRoute } from './__root';
 import { BaseMap } from '@mdc/map';
 import { Marker } from '@mdc/data';
 import { MarkersDynamicallyGenerated } from '../features';
+import { faker } from '@faker-js/faker';
 
 export const dynamicRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -16,7 +17,13 @@ function Dynamic() {
     markers.push({
       lng: -122.673447 + Math.random() * 200.0,
       lat: 45.5225581 - 60 + Math.random() * 80,
-    } as Marker);
+      name: faker.airline.airport().name,
+      iata_faa: faker.airline.airport().iataCode,
+      city: faker.location.city(),
+      icao: faker.airline.recordLocator(),
+      alt: faker.number.int({ min: 0, max: 10000 }),
+      tz: faker.location.timeZone(),
+    });
   }
 
   return (
