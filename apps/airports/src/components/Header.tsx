@@ -12,7 +12,7 @@ type Config = {
   style: string;
 };
 
-const commonStyles = 'font-bold text-black';
+const commonStyles = 'font-bold text-black my-2';
 
 const configs: Record<HeaderVariant, Config> = {
   h1: { as: 'h1', style: `text-3xl ${commonStyles}` },
