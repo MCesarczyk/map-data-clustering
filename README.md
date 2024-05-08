@@ -7,7 +7,8 @@ Based on the [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercl
 ___
 
 ## Projects:
-1. **airports**: React app with basic clustering example based on airports data.
+1. **airports**: React app with basic clustering example based on airports data.\
+   Preview: https://airports-topaz.vercel.app/
 
 ___
 ___
