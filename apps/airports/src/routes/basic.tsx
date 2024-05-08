@@ -1,7 +1,7 @@
 import { createRoute } from '@tanstack/react-router';
 import { BaseMap } from '@mdc/map';
 import { rootRoute } from './__root';
-import { Markers } from '../components';
+import { MarkersUnoptimized } from '../features';
 
 export const basicRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -16,7 +16,7 @@ function Basic() {
       height={800}
       width={100}
     >
-      <Markers />
+      <MarkersUnoptimized />
     </BaseMap>
   );
 }

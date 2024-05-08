@@ -1,3 +1,3 @@
 export * from './Header';
-export * from './Markers';
+export * from '../features/MarkersUnoptimized';
 export * from './Navlink';

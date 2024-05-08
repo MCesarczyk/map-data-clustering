@@ -7,12 +7,14 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { markers } from '@mdc/data';
 
-export const Markers = () => {
+export const MarkersUnoptimized = () => {
   const map = useMap();
 
   useEffect(() => {
     // @ts-ignore
     const markerClusters = L.markerClusterGroup();
+
+    console.log(markers.length);
 
     for (let i = 0; i < markers.length; ++i) {
       const popup =
@@ -29,12 +31,7 @@ export const Markers = () => {
         '<br/><b>Timezone:</b> ' +
         markers[i].tz;
 
-      const m = L.marker(
-        [markers[i].lat, markers[i].lng]
-        //   , {
-        //   icon: myIcon,
-        // }
-      ).bindPopup(popup);
+      const m = L.marker([markers[i].lat, markers[i].lng]).bindPopup(popup);
 
       markerClusters.addLayer(m);
     }
