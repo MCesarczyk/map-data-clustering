@@ -2,6 +2,7 @@ import { createRoute } from '@tanstack/react-router';
 import { BaseMap } from '@mdc/map';
 import { rootRoute } from './__root';
 import { Markers } from '../components/Markers';
+import { Header } from '../components/Header';
 
 export const basicRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -12,7 +13,7 @@ export const basicRoute = createRoute({
 function Basic() {
   return (
     <div>
-      <h1>Airports worldwide</h1>
+      <Header variant="h1">Unoptimized</Header>
       <BaseMap apiKey={import.meta.env.VITE_ARCGIS_MAP_KEY} height={800}>
         <Markers />
       </BaseMap>
