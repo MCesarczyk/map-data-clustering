@@ -5,7 +5,7 @@ export function App() {
   return (
     <div>
       <h1>Airports worldwide</h1>
-      <BaseMap height={800}>
+      <BaseMap apiKey={import.meta.env.VITE_ARCGIS_MAP_KEY} height={800}>
         <Markers />
       </BaseMap>
     </div>

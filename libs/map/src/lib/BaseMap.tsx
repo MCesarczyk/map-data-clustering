@@ -8,13 +8,20 @@ const initialZoom = 13;
 const mapStyle = 'OSM:DarkGray';
 
 interface BaseMapProps {
+  apiKey: string;
   center?: LatLngTuple;
   zoom?: number;
   height?: number;
   children?: ReactNode;
 }
 
-export const BaseMap = ({ center, zoom, height, children }: BaseMapProps) => {
+export const BaseMap = ({
+  apiKey,
+  center,
+  zoom,
+  height,
+  children,
+}: BaseMapProps) => {
   return (
     <MapContainer
       style={{ minHeight: `${height || 500}px`, width: '100%', zIndex: 100 }}
@@ -23,10 +30,7 @@ export const BaseMap = ({ center, zoom, height, children }: BaseMapProps) => {
       maxZoom={20}
       scrollWheelZoom={true}
     >
-      <VectorBasemapLayer
-        apiKey={import.meta.env.VITE_ARCGIS_MAP_KEY}
-        name={mapStyle}
-      />
+      <VectorBasemapLayer apiKey={apiKey} name={mapStyle} />
       {children}
     </MapContainer>
   );
