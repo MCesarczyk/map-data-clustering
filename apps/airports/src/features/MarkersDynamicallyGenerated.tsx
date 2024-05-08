@@ -2,49 +2,43 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
+import { faker } from '@faker-js/faker';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import { Marker } from '@mdc/data';
+
+const markersLength = 8000;
 
 // @ts-ignore
 const markerClusters = L.markerClusterGroup();
-// const customIcon = new L.Icon({
-//   iconUrl: 'https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png',
-//   iconSize: [25, 41],
-// });
 
-export const MarkersDynamicallyGenerated = ({
-  markers,
-}: {
-  markers: Marker[];
-}) => {
+export const MarkersDynamicallyGenerated = () => {
   const map = useMap();
 
   useEffect(() => {
-    console.log('Markers number: ', markers.length);
+    console.log('Markers number: ', markersLength);
     const start = window.performance.now();
     markerClusters.clearLayers();
-    // markers.forEach(({ lat, lng }) =>
-    //   L.marker(new L.LatLng(lat, lng)).addTo(markerClusters)
-    // );
 
-    for (let i = 0; i < markers.length; ++i) {
+    for (let i = 0; i < markersLength; ++i) {
       const popup =
-        markers[i].name +
+        faker.airline.airport().name +
         '<br/>' +
-        markers[i].city +
+        faker.location.city() +
         '<br/><b>IATA/FAA:</b> ' +
-        markers[i].iata_faa +
+        faker.airline.airport().iataCode +
         '<br/><b>ICAO:</b> ' +
-        markers[i].icao +
+        faker.airline.recordLocator() +
         '<br/><b>Altitude:</b> ' +
-        Math.round(markers[i].alt * 0.3048) +
+        Math.round(faker.number.int({ min: 0, max: 10000 }) * 0.3048) +
         ' m' +
         '<br/><b>Timezone:</b> ' +
-        markers[i].tz;
+        faker.location.timeZone();
 
-      const m = L.marker([markers[i].lat, markers[i].lng]).bindPopup(popup);
+      const m = L.marker([
+        45.5225581 - 60 + Math.random() * 80,
+        -122.673447 + Math.random() * 200.0,
+      ]).bindPopup(popup);
 
       markerClusters.addLayer(m);
     }
@@ -52,6 +46,6 @@ export const MarkersDynamicallyGenerated = ({
     map.addLayer(markerClusters);
     const end = window.performance.now();
     console.log(`Time of adding markers and clusters: ${end - start}ms`);
-  }, [markers, map]);
+  }, [map]);
   return null;
 };

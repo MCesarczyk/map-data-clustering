@@ -2,10 +2,10 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
+import { markers } from '@mdc/data';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import { markers } from '@mdc/data';
 
 // @ts-ignore
 const markerClusters = L.markerClusterGroup();
