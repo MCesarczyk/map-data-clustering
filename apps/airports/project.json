@@ -1,7 +1,7 @@
 {
-  "name": "simple",
+  "name": "airports",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/simple/src",
+  "sourceRoot": "apps/airports/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/simple"
+        "outputPath": "dist/apps/airports"
       },
       "configurations": {
         "development": {
@@ -24,15 +24,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "simple:build"
+        "buildTarget": "airports:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "simple:build:development",
+          "buildTarget": "airports:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "simple:build:production",
+          "buildTarget": "airports:build:production",
           "hmr": false
         }
       }
@@ -41,14 +41,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "simple:build"
+        "buildTarget": "airports:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "simple:build:development"
+          "buildTarget": "airports:build:development"
         },
         "production": {
-          "buildTarget": "simple:build:production"
+          "buildTarget": "airports:build:production"
         }
       }
     },
@@ -56,7 +56,7 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/apps/simple"
+        "reportsDirectory": "../../coverage/apps/airports"
       }
     },
     "lint": {
