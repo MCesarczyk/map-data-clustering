@@ -5,7 +5,7 @@ import L from 'leaflet';
 import 'leaflet.markercluster/dist/leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import { MarkersClusterProps } from '../types';
+import { Marker } from '@mdc/data';
 
 // @ts-ignore
 const markerClusters = L.markerClusterGroup();
@@ -14,15 +14,16 @@ const customIcon = new L.Icon({
   iconSize: [25, 41],
 });
 
-export const MarkersWithRemoveLayer = ({
+export const MarkersDynamicallyGenerated = ({
   markers,
-  addMarkers,
-}: MarkersClusterProps) => {
+}: {
+  markers: Marker[];
+}) => {
   const map = useMap();
 
   useEffect(() => {
-    console.log(markers.length);
-
+    console.log('Markers number: ', markers.length);
+    const start = window.performance.now();
     markerClusters.clearLayers();
     markers.forEach(({ lat, lng }) =>
       L.marker(new L.LatLng(lat, lng), {
@@ -31,21 +32,8 @@ export const MarkersWithRemoveLayer = ({
     );
 
     map.addLayer(markerClusters);
-  }, [markers, map]);
-
-  map.on('moveend', () => {
-    const start = window.performance.now();
-    addMarkers();
-    markers.forEach((marker) => markerClusters.removeLayer(marker));
-    markers.forEach(({ lat, lng }) => {
-      const markerToAdd = L.marker(new L.LatLng(lat, lng), {
-        icon: customIcon,
-      });
-      markerClusters.addLayer(markerToAdd);
-    });
     const end = window.performance.now();
     console.log(`Time of adding markers and clusters: ${end - start}ms`);
-  });
-
+  }, [markers, map]);
   return null;
 };

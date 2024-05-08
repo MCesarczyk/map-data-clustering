@@ -4,19 +4,15 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 
 import { rootRoute } from './routes/__root';
 import { indexRoute } from './routes';
-import { basicRoute } from './routes/basic';
-import { firstRoute } from './routes/first';
-import { secondRoute } from './routes/second';
-import { thirdRoute } from './routes/third';
+import { staticRoute } from './routes/static';
+import { dynamicRoute } from './routes/dynamic';
 
 import './styles.css';
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  basicRoute,
-  firstRoute,
-  secondRoute,
-  thirdRoute,
+  staticRoute,
+  dynamicRoute,
 ]);
 
 const router = createRouter({ routeTree });

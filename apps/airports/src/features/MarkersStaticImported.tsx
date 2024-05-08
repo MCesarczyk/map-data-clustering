@@ -7,14 +7,16 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { markers } from '@mdc/data';
 
-export const MarkersUnoptimized = () => {
+// @ts-ignore
+const markerClusters = L.markerClusterGroup();
+
+export const MarkersStaticImported = () => {
   const map = useMap();
 
   useEffect(() => {
-    // @ts-ignore
-    const markerClusters = L.markerClusterGroup();
-
-    console.log(markers.length);
+    console.log('Markers number: ', markers.length);
+    const start = window.performance.now();
+    markerClusters.clearLayers();
 
     for (let i = 0; i < markers.length; ++i) {
       const popup =
@@ -37,11 +39,12 @@ export const MarkersUnoptimized = () => {
     }
 
     map.addLayer(markerClusters);
+    const end = window.performance.now();
+    console.log(`Time of adding markers and clusters: ${end - start}ms`);
 
     return () => {
       map.removeLayer(markerClusters);
     };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+  }, [map]);
   return null;
 };

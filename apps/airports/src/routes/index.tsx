@@ -17,20 +17,12 @@ function Index() {
       </p>
       <ul className="list-none flex flex-col gap-4">
         <li>
-          <Header variant="h2">unoptimized</Header>
-          <p>Without optimization, simply rendered data</p>
+          <Header variant="h2">Static</Header>
+          <p>GeoJSON staticly imported from file</p>
         </li>
         <li>
-          <Header variant="h2">w/removeLayer</Header>
-          <p>RemoveLayer and addLayer methods are used.</p>
-        </li>
-        <li>
-          <Header variant="h2">w/removeLayers</Header>
-          <p>RemoveLayers and addLayer methods are used.</p>
-        </li>
-        <li>
-          <Header variant="h2">w/clearLayers</Header>
-          <p>ClearLayers and addLayers methods are used.</p>
+          <Header variant="h2">Dynamic</Header>
+          <p>Markers generated in a loop</p>
         </li>
       </ul>
     </div>

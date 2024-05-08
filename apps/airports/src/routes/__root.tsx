@@ -7,10 +7,8 @@ export const rootRoute = createRootRoute({
     <>
       <nav className="bg-slate-700 p-2 flex gap-4">
         <Navlink path="/" label="Home" />
-        <Navlink path="/basic" label="Unoptimized" />
-        <Navlink path="/first" label="w/RemoveLayer" />
-        <Navlink path="/second" label="w/RemoveLayers" />
-        <Navlink path="/third" label="w/ClearLayers" />
+        <Navlink path="/static" label="Static" />
+        <Navlink path="/dynamic" label="Dynamic" />
       </nav>
       <hr />
       <Outlet />

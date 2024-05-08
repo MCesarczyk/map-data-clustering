@@ -1,22 +1,23 @@
 import { createRoute } from '@tanstack/react-router';
 import { BaseMap } from '@mdc/map';
 import { rootRoute } from './__root';
-import { MarkersUnoptimized } from '../features';
+import { MarkersStaticImported } from '../features';
 
-export const basicRoute = createRoute({
+export const staticRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/basic',
-  component: Basic,
+  path: '/static',
+  component: Static,
 });
 
-function Basic() {
+function Static() {
   return (
     <BaseMap
       apiKey={import.meta.env.VITE_ARCGIS_MAP_KEY}
       height={800}
       width={100}
+      zoom={5}
     >
-      <MarkersUnoptimized />
+      <MarkersStaticImported />
     </BaseMap>
   );
 }
