@@ -20,6 +20,7 @@ export const BaseMap = ({ center, zoom, height, children }: BaseMapProps) => {
       style={{ minHeight: `${height || 500}px`, width: '100%', zIndex: 100 }}
       center={center || initialPosition}
       zoom={zoom || initialZoom}
+      maxZoom={20}
       scrollWheelZoom={true}
     >
       <VectorBasemapLayer

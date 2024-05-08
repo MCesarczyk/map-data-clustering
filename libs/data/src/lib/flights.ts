@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
-export default flights = [
+export const markers = [
   {
     name: 'Goroka',
     city: 'Goroka, Papua New Guinea',
