@@ -1,6 +1,7 @@
 import { createRoute } from '@tanstack/react-router';
 import { rootRoute } from './__root';
 import { Routes } from './enum';
+import { MarkersOptimized } from '../features';
 
 export const optimizedRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -9,5 +10,5 @@ export const optimizedRoute = createRoute({
 });
 
 function Optimized() {
-  return <h1 className="text-3xl font-bold p-8">Optimized</h1>;
+  return <MarkersOptimized />;
 }
