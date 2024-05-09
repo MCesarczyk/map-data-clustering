@@ -1,7 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/",
+      "destination": "/"
+    },
+    {
+      "source": "/static",
+      "destination": "/"
+    },
+    {
+      "source": "/dynamic",
       "destination": "/"
     }
   ]
