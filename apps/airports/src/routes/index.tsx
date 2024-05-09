@@ -9,6 +9,8 @@ export const indexRoute = createRoute({
 });
 
 function Index() {
+  console.log(process.env.NODE_ENV);
+
   return (
     <div className="p-8">
       <Header variant="h1">About</Header>
