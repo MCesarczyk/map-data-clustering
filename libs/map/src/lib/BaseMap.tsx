@@ -28,7 +28,7 @@ export const BaseMap = forwardRef((props: BaseMapProps, ref: Ref<Map>) => {
       }}
       center={center || initialPosition}
       zoom={zoom || initialZoom}
-      maxZoom={20}
+      maxZoom={24}
       scrollWheelZoom={true}
     >
       <VectorBasemapLayer apiKey={apiKey} name={mapStyle} />
