@@ -64,6 +64,7 @@
     "react-esri-leaflet": "^2.0.1",
     "react-leaflet": "^4.2.1",
     "supercluster": "^8.0.1",
+    "swr": "^2.2.5",
     "tslib": "^2.3.0",
     "use-supercluster": "^1.2.0"
   }
