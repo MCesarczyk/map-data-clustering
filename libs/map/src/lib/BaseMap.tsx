@@ -12,6 +12,7 @@ interface BaseMapProps {
   center?: LatLngTuple;
   zoom?: number;
   height?: number;
+  width?: number;
   children?: ReactNode;
 }
 
@@ -20,11 +21,16 @@ export const BaseMap = ({
   center,
   zoom,
   height,
+  width,
   children,
 }: BaseMapProps) => {
   return (
     <MapContainer
-      style={{ minHeight: `${height || 500}px`, width: '100%', zIndex: 100 }}
+      style={{
+        minHeight: `${height || 500}px`,
+        width: `${width || 100}%`,
+        zIndex: 100,
+      }}
       center={center || initialPosition}
       zoom={zoom || initialZoom}
       maxZoom={20}
