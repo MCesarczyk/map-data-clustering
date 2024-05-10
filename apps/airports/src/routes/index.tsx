@@ -30,7 +30,7 @@ function Index() {
         <li>
           <Header variant="h2">Crimes</Header>
           <p>
-            Using <em>supercluster</em> and <em>use-supercluster</em> libs.
+            Using GeoJSON from public police API.
             <br />
             Displaying Leicester area crimes data - 1500 markers, concentrated
             on chosen city area.
