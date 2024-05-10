@@ -9,6 +9,9 @@ import { dynamicRoute } from './routes/dynamic';
 import { optimizedRoute } from './routes/optimized';
 
 import './styles.css';
+import './leaflet.css';
+import './markercluster.css';
+import './mapboxgl.css';
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
