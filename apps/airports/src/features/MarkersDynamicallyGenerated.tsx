@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
@@ -7,7 +6,7 @@ import 'leaflet.markercluster/dist/leaflet.markercluster';
 
 const markersLength = 8000;
 
-// @ts-ignore
+// @ts-expect-error (@typescript-eslint/ban-ts-comment)
 const markerClusters = L.markerClusterGroup();
 
 export const MarkersDynamicallyGenerated = () => {

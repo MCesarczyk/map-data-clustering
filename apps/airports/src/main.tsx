@@ -7,6 +7,7 @@ import { indexRoute } from './routes';
 import { staticRoute } from './routes/static';
 import { dynamicRoute } from './routes/dynamic';
 import { optimizedRoute } from './routes/optimized';
+import { unoptimizedRoute } from './routes/unoptimized';
 
 import './styles/styles.css';
 import './styles/leaflet.css';
@@ -18,6 +19,7 @@ const routeTree = rootRoute.addChildren([
   staticRoute,
   dynamicRoute,
   optimizedRoute,
+  unoptimizedRoute,
 ]);
 
 const router = createRouter({ routeTree });

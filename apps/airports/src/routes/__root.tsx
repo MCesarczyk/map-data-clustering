@@ -11,6 +11,7 @@ export const rootRoute = createRootRoute({
         <Navlink path={Routes.STATIC} label="Static" />
         <Navlink path={Routes.DYNAMIC} label="Dynamic" />
         <Navlink path={Routes.OPTIMIZED} label="Optimized" />
+        <Navlink path={Routes.UNOPTIMIZED} label="Unoptimized" />
       </nav>
       <hr />
       <Outlet />

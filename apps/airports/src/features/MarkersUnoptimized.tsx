@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
-import { useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { markers } from '@mdc/data';
-import 'leaflet.markercluster/dist/leaflet.markercluster';
+import { useMap } from 'react-leaflet';
+import { useCrimesApi } from '../crimes/api';
 
 // @ts-expect-error (@typescript-eslint/ban-ts-comment)
 const markerClusters = L.markerClusterGroup();
-
-export const MarkersStaticImported = () => {
+export const MarkersUnoptimized = () => {
   const map = useMap();
+  const { points: markers } = useCrimesApi();
 
   useEffect(() => {
     console.log('Markers number: ', markers.length);
@@ -16,21 +15,12 @@ export const MarkersStaticImported = () => {
     markerClusters.clearLayers();
 
     for (let i = 0; i < markers.length; ++i) {
-      const popup =
-        markers[i].name +
-        '<br/>' +
-        markers[i].city +
-        '<br/><b>IATA/FAA:</b> ' +
-        markers[i].iata_faa +
-        '<br/><b>ICAO:</b> ' +
-        markers[i].icao +
-        '<br/><b>Altitude:</b> ' +
-        Math.round(markers[i].alt * 0.3048) +
-        ' m' +
-        '<br/><b>Timezone:</b> ' +
-        markers[i].tz;
+      const popup = '<b>Crime:</b> ' + markers[i].properties.category;
 
-      const m = L.marker([markers[i].lat, markers[i].lng]).bindPopup(popup);
+      const m = L.marker([
+        markers[i].geometry.coordinates[1],
+        markers[i].geometry.coordinates[0],
+      ]).bindPopup(popup);
 
       markerClusters.addLayer(m);
     }
@@ -42,6 +32,6 @@ export const MarkersStaticImported = () => {
     return () => {
       map.removeLayer(markerClusters);
     };
-  }, [map]);
+  }, [map, markers]);
   return null;
 };

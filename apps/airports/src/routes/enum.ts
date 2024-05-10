@@ -3,4 +3,5 @@ export enum Routes {
   STATIC = '/static',
   DYNAMIC = '/dynamic',
   OPTIMIZED = '/optimized',
+  UNOPTIMIZED = '/unoptimized',
 }
