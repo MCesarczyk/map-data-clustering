@@ -2,6 +2,7 @@ import useSwr from 'swr';
 import { BaseMap } from '@mdc/map';
 import { useEffect, useRef, useState } from 'react';
 import { Map } from 'leaflet';
+import L from 'leaflet';
 import useSupercluster from 'use-supercluster';
 import { Marker, Popup, useMapEvent } from 'react-leaflet';
 
@@ -44,6 +45,19 @@ const MapEventWatcher = ({ onMoveEnd }: { onMoveEnd?: () => void }) => {
   useMapEvent('moveend', onMoveEnd);
 
   return null;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const icons: any = {};
+const fetchIcon = (count: number, size: number) => {
+  if (!icons[count]) {
+    icons[count] = L.divIcon({
+      html: `<div class="cluster-marker" style="width: ${size}px; height: ${size}px;">
+        ${count}
+      </div>`,
+    });
+  }
+  return icons[count];
 };
 
 export const MarkersOptimized = () => {
@@ -117,23 +131,22 @@ export const MarkersOptimized = () => {
       <MapEventWatcher onMoveEnd={updateMap} />
       {clusters.map((cluster) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
-        const { cluster: isCluster } = cluster.properties;
+        const isCluster = cluster.properties.cluster;
+        const pointCount = isCluster ? cluster.properties.point_count : 0;
 
         if (isCluster) {
           return (
             <Marker
               key={`cluster-${cluster.id}`}
               position={[latitude, longitude]}
-            >
-              <Popup>
-                <p
-                  className="text-center text-lg font-bold text-blue-700 !m-0 cursor-pointer"
-                  onClick={() => zoomToCluster(cluster.id, latitude, longitude)}
-                >
-                  Crimes: {cluster.properties.point_count_abbreviated}
-                </p>
-              </Popup>
-            </Marker>
+              icon={fetchIcon(
+                pointCount,
+                10 + pointCount.toString().length * 10
+              )}
+              eventHandlers={{
+                click: () => zoomToCluster(cluster.id, latitude, longitude),
+              }}
+            />
           );
         }
 
@@ -143,7 +156,7 @@ export const MarkersOptimized = () => {
             position={[latitude, longitude]}
           >
             <Popup>
-              <p className="text-center text-lg font-bold text-red-700 !m-0">
+              <p className="text-center text-base font-bold text-slate-900 !m-0">
                 Crime: {cluster.properties.category}
               </p>
             </Popup>
