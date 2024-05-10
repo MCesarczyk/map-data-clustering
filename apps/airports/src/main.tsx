@@ -8,10 +8,10 @@ import { staticRoute } from './routes/static';
 import { dynamicRoute } from './routes/dynamic';
 import { optimizedRoute } from './routes/optimized';
 
-import './styles.css';
-import './leaflet.css';
-import './markercluster.css';
-import './mapboxgl.css';
+import './styles/styles.css';
+import './styles/leaflet.css';
+import './styles/markercluster.css';
+import './styles/mapboxgl.css';
 
 const routeTree = rootRoute.addChildren([
   indexRoute,

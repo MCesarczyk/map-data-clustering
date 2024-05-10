@@ -1,51 +1,8 @@
-import useSwr from 'swr';
-import { BaseMap } from '@mdc/map';
-import { useEffect, useRef, useState } from 'react';
-import { Map } from 'leaflet';
 import L from 'leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import useSupercluster from 'use-supercluster';
-import { Marker, Popup, useMapEvent } from 'react-leaflet';
-
-interface CrimeDto {
-  category: string;
-  location_type: string;
-  location: {
-    latitude: string;
-    street: {
-      id: number;
-      name: string;
-    };
-    longitude: string;
-  };
-  context: string;
-  outcome_status: null;
-  persistent_id: string;
-  id: number;
-  location_subtype: string;
-  month: string;
-}
-
-interface Crime {
-  type: 'Feature';
-  properties: {
-    cluster: false;
-    crimeId: number;
-    category: string;
-  };
-  geometry: { type: 'Point'; coordinates: number[] };
-}
-
-const url =
-  'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2024-03';
-
-const fetcher = (...args: [RequestInfo | URL, RequestInit | undefined]) =>
-  fetch(...args).then((response) => response.json());
-
-const MapEventWatcher = ({ onMoveEnd }: { onMoveEnd?: () => void }) => {
-  useMapEvent('moveend', onMoveEnd);
-
-  return null;
-};
+import { BaseMap, MapEventWatcher, useMapGeometry } from '@mdc/map';
+import { useCrimesApi } from '../crimes/api';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const icons: any = {};
@@ -61,39 +18,9 @@ const fetchIcon = (count: number, size: number) => {
 };
 
 export const MarkersOptimized = () => {
-  const [bounds, setBounds] = useState<[number, number, number, number]>();
-  const [zoom, setZoom] = useState(13);
-  const mapRef = useRef<Map>(null);
+  const { bounds, zoom, mapRef, updateMap } = useMapGeometry();
 
-  const { data, error } = useSwr(url, { fetcher });
-  const crimes: CrimeDto[] = data && !error ? data : [];
-  const points: Crime[] = crimes.map((crime) => ({
-    type: 'Feature',
-    properties: { cluster: false, crimeId: crime.id, category: crime.category },
-    geometry: {
-      type: 'Point',
-      coordinates: [
-        parseFloat(crime.location.longitude),
-        parseFloat(crime.location.latitude),
-      ],
-    },
-  }));
-
-  function updateMap() {
-    const b = mapRef.current?.getBounds();
-    b &&
-      setBounds([
-        b.getSouthWest().lng,
-        b.getSouthWest().lat,
-        b.getNorthEast().lng,
-        b.getNorthEast().lat,
-      ]);
-    mapRef.current && setZoom(mapRef.current?.getZoom());
-  }
-
-  useEffect(() => {
-    updateMap();
-  }, [mapRef.current]); // eslint-disable-line react-hooks/exhaustive-deps
+  const { points } = useCrimesApi();
 
   const { clusters, supercluster } = useSupercluster({
     points,
