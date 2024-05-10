@@ -2,15 +2,15 @@ import { createRoute } from '@tanstack/react-router';
 import { rootRoute } from './__root';
 import { BaseMap } from '@mdc/map';
 import { Routes } from './enum';
-import { MarkersUnoptimized } from '../features';
+import { CrimesMarkers } from '../crimes/CrimesMarkers';
 
-export const unoptimizedRoute = createRoute({
+export const crimesRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: Routes.UNOPTIMIZED,
-  component: Optimized,
+  path: Routes.CRIMES,
+  component: Crimes,
 });
 
-function Optimized() {
+function Crimes() {
   return (
     <BaseMap
       apiKey={import.meta.env.VITE_ARCGIS_MAP_KEY}
@@ -18,7 +18,7 @@ function Optimized() {
       width={100}
       zoom={5}
     >
-      <MarkersUnoptimized />
+      <CrimesMarkers />
     </BaseMap>
   );
 }

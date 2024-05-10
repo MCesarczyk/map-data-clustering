@@ -19,19 +19,21 @@ function Index() {
       </p>
       <ul className="list-none flex flex-col gap-4">
         <li>
-          <Header variant="h2">Static</Header>
+          <Header variant="h2">Airports</Header>
           <p>
-            GeoJSON staticly imported from file, using real data
+            GeoJSON staticly imported from file, using real data.
             <br />
-            Displaying worldwide airports data - over 8000 markers.
+            Displaying worldwide airports data - over 8000 markers placed
+            globally.
           </p>
         </li>
         <li>
-          <Header variant="h2">Optimized</Header>
+          <Header variant="h2">Crimes</Header>
           <p>
             Using <em>supercluster</em> and <em>use-supercluster</em> libs.
             <br />
-            Displaying Leicester area crimes data - 1500 markers.
+            Displaying Leicester area crimes data - 1500 markers, concentrated
+            on chosen city area.
           </p>
         </li>
       </ul>

@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import L from 'leaflet';
 import { useMap } from 'react-leaflet';
-import { useCrimesApi } from '../crimes/api';
+import { useCrimesApi } from './api';
 
 // @ts-expect-error (@typescript-eslint/ban-ts-comment)
 const markerClusters = L.markerClusterGroup();
-export const MarkersUnoptimized = () => {
+
+export const CrimesMarkers = () => {
   const map = useMap();
   const { points: markers } = useCrimesApi();
 
   useEffect(() => {
-    console.log('Markers number: ', markers.length);
+    console.log('Crimes markers number: ', markers.length);
     const start = window.performance.now();
     markerClusters.clearLayers();
 
@@ -27,7 +28,7 @@ export const MarkersUnoptimized = () => {
 
     map.addLayer(markerClusters);
     const end = window.performance.now();
-    console.log(`Time of adding markers and clusters: ${end - start}ms`);
+    console.log(`Time of adding crimes markers and clusters: ${end - start}ms`);
 
     return () => {
       map.removeLayer(markerClusters);

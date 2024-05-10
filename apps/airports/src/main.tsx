@@ -4,8 +4,8 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 
 import { rootRoute } from './routes/__root';
 import { indexRoute } from './routes';
-import { staticRoute } from './routes/static';
-import { unoptimizedRoute } from './routes/unoptimized';
+import { airportsRoute } from './routes/airports';
+import { crimesRoute } from './routes/crimes';
 
 import './styles/styles.css';
 import './styles/leaflet.css';
@@ -14,8 +14,8 @@ import './styles/mapboxgl.css';
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  staticRoute,
-  unoptimizedRoute,
+  airportsRoute,
+  crimesRoute,
 ]);
 
 const router = createRouter({ routeTree });

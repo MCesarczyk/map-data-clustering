@@ -7,11 +7,11 @@ import 'leaflet.markercluster/dist/leaflet.markercluster';
 // @ts-expect-error (@typescript-eslint/ban-ts-comment)
 const markerClusters = L.markerClusterGroup();
 
-export const MarkersStaticImported = () => {
+export const AirportsMarkers = () => {
   const map = useMap();
 
   useEffect(() => {
-    console.log('Markers number: ', markers.length);
+    console.log('Airports markers number: ', markers.length);
     const start = window.performance.now();
     markerClusters.clearLayers();
 
@@ -37,7 +37,9 @@ export const MarkersStaticImported = () => {
 
     map.addLayer(markerClusters);
     const end = window.performance.now();
-    console.log(`Time of adding markers and clusters: ${end - start}ms`);
+    console.log(
+      `Time of adding airports markers and clusters: ${end - start}ms`
+    );
 
     return () => {
       map.removeLayer(markerClusters);
