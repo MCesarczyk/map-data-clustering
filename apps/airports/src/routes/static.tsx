@@ -2,10 +2,11 @@ import { createRoute } from '@tanstack/react-router';
 import { BaseMap } from '@mdc/map';
 import { rootRoute } from './__root';
 import { MarkersStaticImported } from '../features';
+import { Routes } from './enum';
 
 export const staticRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/static',
+  path: Routes.STATIC,
   component: Static,
 });
 

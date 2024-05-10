@@ -1,7 +1,7 @@
-import { type ReactNode } from 'react';
+import { forwardRef, Ref, type ReactNode } from 'react';
 import { MapContainer } from 'react-leaflet';
 import VectorBasemapLayer from 'react-esri-leaflet/plugins/VectorBasemapLayer';
-import { LatLngTuple } from 'leaflet';
+import { LatLngTuple, Map } from 'leaflet';
 
 const initialPosition = [51.505, -0.09] satisfies LatLngTuple;
 const initialZoom = 13;
@@ -16,16 +16,11 @@ interface BaseMapProps {
   children?: ReactNode;
 }
 
-export const BaseMap = ({
-  apiKey,
-  center,
-  zoom,
-  height,
-  width,
-  children,
-}: BaseMapProps) => {
+export const BaseMap = forwardRef((props: BaseMapProps, ref: Ref<Map>) => {
+  const { apiKey, center, zoom, height, width, children } = props;
   return (
     <MapContainer
+      ref={ref}
       style={{
         minHeight: `${height || 500}px`,
         width: `${width || 100}%`,
@@ -33,11 +28,11 @@ export const BaseMap = ({
       }}
       center={center || initialPosition}
       zoom={zoom || initialZoom}
-      maxZoom={20}
+      maxZoom={24}
       scrollWheelZoom={true}
     >
       <VectorBasemapLayer apiKey={apiKey} name={mapStyle} />
       {children}
     </MapContainer>
   );
-};
+});

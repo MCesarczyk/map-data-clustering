@@ -2,10 +2,11 @@ import { createRoute } from '@tanstack/react-router';
 import { rootRoute } from './__root';
 import { BaseMap } from '@mdc/map';
 import { MarkersDynamicallyGenerated } from '../features';
+import { Routes } from './enum';
 
 export const dynamicRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/dynamic',
+  path: Routes.DYNAMIC,
   component: Dynamic,
 });
 
