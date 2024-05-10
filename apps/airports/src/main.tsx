@@ -5,8 +5,6 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { rootRoute } from './routes/__root';
 import { indexRoute } from './routes';
 import { staticRoute } from './routes/static';
-import { dynamicRoute } from './routes/dynamic';
-import { optimizedRoute } from './routes/optimized';
 import { unoptimizedRoute } from './routes/unoptimized';
 
 import './styles/styles.css';
@@ -17,8 +15,6 @@ import './styles/mapboxgl.css';
 const routeTree = rootRoute.addChildren([
   indexRoute,
   staticRoute,
-  dynamicRoute,
-  optimizedRoute,
   unoptimizedRoute,
 ]);
 

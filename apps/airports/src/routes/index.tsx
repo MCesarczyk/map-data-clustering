@@ -27,14 +27,6 @@ function Index() {
           </p>
         </li>
         <li>
-          <Header variant="h2">Dynamic</Header>
-          <p>
-            Markers generated in a loop using faker-js
-            <br />
-            Displaying fake airports data - 8000 markers.
-          </p>
-        </li>
-        <li>
           <Header variant="h2">Optimized</Header>
           <p>
             Using <em>supercluster</em> and <em>use-supercluster</em> libs.
