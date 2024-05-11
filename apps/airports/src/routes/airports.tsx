@@ -1,16 +1,16 @@
 import { createRoute } from '@tanstack/react-router';
-import { rootRoute } from './__root';
 import { BaseMap } from '@mdc/map';
-import { MarkersDynamicallyGenerated } from '../features';
+import { rootRoute } from './__root';
 import { Routes } from './enum';
+import { AirportsMarkers } from '../airports/AirportsMarkers';
 
-export const dynamicRoute = createRoute({
+export const airportsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: Routes.DYNAMIC,
-  component: Dynamic,
+  path: Routes.AIRPORTS,
+  component: Airports,
 });
 
-function Dynamic() {
+function Airports() {
   return (
     <BaseMap
       apiKey={import.meta.env.VITE_ARCGIS_MAP_KEY}
@@ -18,7 +18,7 @@ function Dynamic() {
       width={100}
       zoom={5}
     >
-      <MarkersDynamicallyGenerated />
+      <AirportsMarkers />
     </BaseMap>
   );
 }
