@@ -6,6 +6,7 @@ import { rootRoute } from './routes/__root';
 import { indexRoute } from './routes';
 import { airportsRoute } from './routes/airports';
 import { crimesRoute } from './routes/crimes';
+import { mineralsRoute } from './routes/minerals';
 
 import './styles/styles.css';
 import './styles/leaflet.css';
@@ -16,6 +17,7 @@ const routeTree = rootRoute.addChildren([
   indexRoute,
   airportsRoute,
   crimesRoute,
+  mineralsRoute,
 ]);
 
 const router = createRouter({ routeTree });

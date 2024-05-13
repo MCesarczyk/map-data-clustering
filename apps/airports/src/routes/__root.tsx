@@ -10,6 +10,7 @@ export const rootRoute = createRootRoute({
         <Navlink path={Routes.HOME} label="Home" />
         <Navlink path={Routes.AIRPORTS} label="Airports" />
         <Navlink path={Routes.CRIMES} label="Crimes" />
+        <Navlink path={Routes.MINERALS} label="Minerals" />
       </nav>
       <hr />
       <Outlet />
