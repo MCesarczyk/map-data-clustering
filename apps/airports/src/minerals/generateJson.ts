@@ -22,7 +22,7 @@ const generateRandomPoints = (count: number, minLat: number, minLng: number, max
 }
 
 export const generateSampleJson = () => {
-  const minLat = 144.8353781600000048, minLng = 148.4593477610000036, maxLat = -36.2421714299999991, maxLng = -30.0357289409999986;
-  const pointCount = 50;
+  const minLng = 144.8353781600000048, minLat = -36.2421714299999991, maxLng = 148.4593477610000036, maxLat = -30.0357289409999986;
+  const pointCount = 1000;
   return generateRandomPoints(pointCount, minLat, minLng, maxLat, maxLng);
 }

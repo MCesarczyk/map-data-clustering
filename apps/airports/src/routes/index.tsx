@@ -38,7 +38,7 @@ function Index() {
         </li>
         <li>
           <Header variant="h2">Minerals</Header>
-          <p>Displaying minerals distribution on Decar Area.</p>
+          <p>Displaying minerals distribution on Cobar Area in Australia.</p>
         </li>
       </ul>
     </div>
