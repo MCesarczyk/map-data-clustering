@@ -7,10 +7,10 @@ import { indexRoute } from './routes';
 import { airportsRoute } from './routes/airports';
 import { crimesRoute } from './routes/crimes';
 
-import './styles/styles.css';
-import './styles/leaflet.css';
-import './styles/markercluster.css';
-import './styles/mapboxgl.css';
+import './styles.css';
+// import './styles/leaflet.css';
+// import './styles/markercluster.css';
+// import './styles/mapboxgl.css';
 
 const routeTree = rootRoute.addChildren([
   indexRoute,

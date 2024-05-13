@@ -1,7 +1,7 @@
 {
-  "name": "airports",
+  "name": "clusters-poc",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/airports/src",
+  "sourceRoot": "apps/clusters-poc/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,7 +11,7 @@
       ],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/airports"
+        "outputPath": "dist/apps/clusters-poc"
       },
       "configurations": {
         "development": {
@@ -26,16 +26,16 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "port": 4201,
-        "buildTarget": "airports:build"
+        "port": 4202,
+        "buildTarget": "clusters-poc:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "airports:build:development",
+          "buildTarget": "clusters-poc:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "airports:build:production",
+          "buildTarget": "clusters-poc:build:production",
           "hmr": false
         }
       }
@@ -44,14 +44,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "airports:build"
+        "buildTarget": "clusters-poc:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "airports:build:development"
+          "buildTarget": "clusters-poc:build:development"
         },
         "production": {
-          "buildTarget": "airports:build:production"
+          "buildTarget": "clusters-poc:build:production"
         }
       }
     },
@@ -61,7 +61,7 @@
         "{options.reportsDirectory}"
       ],
       "options": {
-        "reportsDirectory": "../../coverage/apps/airports"
+        "reportsDirectory": "../../coverage/apps/clusters-poc"
       }
     },
     "lint": {

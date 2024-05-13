@@ -3,6 +3,10 @@ import { MapContainer } from 'react-leaflet';
 import VectorBasemapLayer from 'react-esri-leaflet/plugins/VectorBasemapLayer';
 import { LatLngTuple, Map } from 'leaflet';
 
+import './styles/leaflet.css';
+import './styles/markercluster.css';
+import './styles/mapboxgl.css';
+
 const initialPosition = [51.505, -0.09] satisfies LatLngTuple;
 const initialZoom = 13;
 const mapStyle = 'OSM:DarkGray';

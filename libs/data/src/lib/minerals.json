@@ -1,0 +1,142 @@
+[
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -35.40106628140353,
+                147.11330802855124
+            ]
+        },
+        "properties": {
+            "name": "Barium",
+            "value": 1.0742755779065192
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -32.603884504180115,
+                145.20985041668254
+            ]
+        },
+        "properties": {
+            "name": "Magnesium",
+            "value": 3.958146008197218
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -30.743984942891323,
+                146.49054714996578
+            ]
+        },
+        "properties": {
+            "name": "Manganese",
+            "value": 15.148772661574185
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -34.8516075855194,
+                146.4325050641628
+            ]
+        },
+        "properties": {
+            "name": "Zinc",
+            "value": 13.019591353135183
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -32.66029128547543,
+                145.36736960630404
+            ]
+        },
+        "properties": {
+            "name": "Thulium",
+            "value": 6.416946316603571
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -32.956769236020115,
+                146.46594295274966
+            ]
+        },
+        "properties": {
+            "name": "Thulium",
+            "value": 18.913412789814174
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -34.45893497702597,
+                145.9512152708783
+            ]
+        },
+        "properties": {
+            "name": "Meitnerium",
+            "value": 5.338414636906236
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -33.599246163005496,
+                147.94780068609916
+            ]
+        },
+        "properties": {
+            "name": "Neon",
+            "value": 11.744234900921583
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -31.166556981243545,
+                146.39111590432123
+            ]
+        },
+        "properties": {
+            "name": "Zirconium",
+            "value": 9.295263926964253
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -34.4746429039705,
+                147.59659614609978
+            ]
+        },
+        "properties": {
+            "name": "Protactinium",
+            "value": 5.1851527015678585
+        }
+    }
+]
