@@ -36,10 +36,6 @@ function Index() {
             on chosen city area.
           </p>
         </li>
-        <li>
-          <Header variant="h2">Minerals</Header>
-          <p>Displaying minerals distribution on Cobar Area in Australia.</p>
-        </li>
       </ul>
     </div>
   );

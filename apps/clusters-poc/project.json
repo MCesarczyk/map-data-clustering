@@ -26,7 +26,7 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "port": 4205,
+        "port": 4202,
         "buildTarget": "clusters-poc:build"
       },
       "configurations": {

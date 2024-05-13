@@ -6,18 +6,16 @@ import { rootRoute } from './routes/__root';
 import { indexRoute } from './routes';
 import { airportsRoute } from './routes/airports';
 import { crimesRoute } from './routes/crimes';
-import { mineralsRoute } from './routes/minerals';
 
-import './styles/styles.css';
-import './styles/leaflet.css';
-import './styles/markercluster.css';
-import './styles/mapboxgl.css';
+import './styles.css';
+// import './styles/leaflet.css';
+// import './styles/markercluster.css';
+// import './styles/mapboxgl.css';
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
   airportsRoute,
   crimesRoute,
-  mineralsRoute,
 ]);
 
 const router = createRouter({ routeTree });
